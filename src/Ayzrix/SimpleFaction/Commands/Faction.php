@@ -634,9 +634,9 @@ class Faction extends Command {
                                                 $faction = FactionsAPI::getFaction($sender->getName());
                                                 $money = (int)$args[2];
                                                 if ($money > 0) {
-                                                    if (Main::getEconomy()->myMoney($sender) >= $money) {
+                                                    if (Main::getEconomy()->getMoney($sender) >= $money) {
                                                         FactionsAPI::addMoney($faction, $money);
-                                                        Main::getEconomy()->reduceMoney($sender, $money);
+                                                        Main::getEconomy()->delMoney($sender, $money);
                                                         $sender->sendMessage(Utils::getMessage($sender, "BANK_DEPOST_SUCCESS", array($money)));
                                                     } else $sender->sendMessage(Utils::getMessage($sender, "NOT_ENOUGH_MONEY"));
                                                 } else $sender->sendMessage(Utils::getMessage($sender, "ENTER_VALID_NUMBER"));

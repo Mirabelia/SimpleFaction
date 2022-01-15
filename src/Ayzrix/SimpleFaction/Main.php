@@ -23,8 +23,7 @@ use Ayzrix\SimpleFaction\Tasks\Async\LoadItTask;
 use Ayzrix\SimpleFaction\Tasks\MapTask;
 use Ayzrix\SimpleFaction\Tasks\BorderTask;
 use Ayzrix\SimpleFaction\Utils\Utils;
-use onebone\economyapi\EconomyAPI;
-use pocketmine\entity\Entity;
+use economy\utils\Api;
 use pocketmine\entity\EntityDataHelper;
 use pocketmine\entity\EntityFactory;
 use pocketmine\entity\Location;
@@ -37,7 +36,7 @@ class Main extends PluginBase {
 
     private static Main $instance;
 
-    private static EconomyAPI $economyAPI;
+    private static Api $economy;
 
     public function onEnable(): void {
         self::$instance = $this;
@@ -67,7 +66,7 @@ class Main extends PluginBase {
                 $this->getServer()->getPluginManager()->disablePlugin($this);
                 return;
             }
-            self::$economyAPI = EconomyAPI::getInstance();
+            self::$economy = \economy\Main::getApi();
         }
 
         if (Utils::getIntoConfig("floating_text") === true) {
@@ -105,10 +104,10 @@ class Main extends PluginBase {
     }
 
     /**
-     * @return EconomyAPI
+     * @return Api
      */
-    public static function getEconomy(): EconomyAPI {
-        return self::$economyAPI;
+    public static function getEconomy(): Api {
+        return self::$economy;
     }
 
     public function initFloatingText(): void {
