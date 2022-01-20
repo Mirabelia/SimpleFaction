@@ -3,6 +3,8 @@
 
 Our dear developer Ayzrix left us on October 18, 2021. To pay homage to him, I would like his best open source plugin to be updated. Please help me to keep it updated...
 Thanks in advance 
+Do you want to contact me? come on Revolt I created my server there
+Revolt link: https://app.revolt.chat/invite/eHSfMG8e
 
 ###### Simple faction plugin replacing FactionsPro which is no longer updated.
 
