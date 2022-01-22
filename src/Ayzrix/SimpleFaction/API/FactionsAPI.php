@@ -312,7 +312,7 @@ class FactionsAPI {
      */
     public static function getHome(string $faction): Position {
         $array = self::$home[$faction];
-        return new Position((int)$array[0], (int)$array[1], (int)$array[2], Main::getInstance()->getServer()->getLevelByName($array[3]));
+        return new Position((int)$array[0], (int)$array[1], (int)$array[2], Main::getInstance()->getServer()->getWorldManager()->getWorldByName($array[3]));
     }
 
     /**
